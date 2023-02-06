@@ -12,6 +12,9 @@ app.use(express.json());
 
 app.use(express.static('public'));
 
+app.get('/', (req, res) => {
+    res.sendFile(path.join(__dirname, './public/index.html'))
+});
 
 app.get('/api/notes', (req, res) => {
     readFromFile('./db/db.json', 'utf8').then((data) => 
