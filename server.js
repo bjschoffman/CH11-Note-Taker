@@ -7,6 +7,7 @@ const PORT = process.env.port || 3001;
 
 const app = express();
 
+
 app.use(express.urlencoded({extended: true}));
 app.use(express.json());
 
@@ -28,15 +29,15 @@ app.post('/api/notes', (req, res) => {
 });
 
 app.delete('/api/notes/:id', (req, res) => {
-    const noteId = req.params.id;
-    readFromFile('./db/db.json', "utf-8")
-      .then((data) => JSON.parse(data))
-      .then((json) => {
-        const result = json.filter((note) => note.id !== noteId);
-        writeToFile('./db/db.json', result);
-        res.json();
-      });
-  });
+   const noteId = req.params.id;
+   readFromFile('./db/db.json', 'utf-8')
+   .then((data) => JSON.parse(data))
+   .then((json) => {
+    const result = json.filter((note) => note.id !==noteId);
+    writeToFile('./db/db.json', result);
+    res.json();
+   });
+});
 
 app.get('/notes', (req, res) => {
     res.sendFile(path.join(__dirname, './public/notes.html'))
@@ -44,7 +45,7 @@ app.get('/notes', (req, res) => {
 
 app.get('*', (req, res) => {
     res.sendFile(path.join(__dirname, './public/index.html'))
-}); 
+});
 
 
 app.listen(PORT, () => 
