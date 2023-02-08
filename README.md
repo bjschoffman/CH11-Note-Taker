@@ -8,7 +8,7 @@ To create an application that a small business owner can use to write and save n
 ## Installation
 
 No installation required.  The deployed website is viewed here:
-https://dashboard.heroku.com/apps/shrouded-inlet-75924
+https://shrouded-inlet-75924.herokuapp.com/
 
 ## Usage
 
